@@ -248,7 +248,7 @@
 }
 
 .watermark-preview.is-scroll-controlled .onboarding-page-body {
-    font-size: clamp(0.95rem, 1.25vw, 1.08rem);
+    font-size: 1.5rem;
 }
 
 .ob-icon {
