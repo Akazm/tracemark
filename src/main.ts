@@ -104,9 +104,12 @@ function makeText(codes: readonly number[]) {
 }
 
 function buildAddress() {
-  const local = makeText([104, 101, 108, 108, 111]);
-  const name = makeText([116, 114, 97, 99, 101, 109, 97, 114, 107]);
-  const suffix = makeText([101, 120, 97, 109, 112, 108, 101]);
+  const local = makeText([
+    102, 105, 99, 104, 101, 46, 109, 101, 114, 114, 105, 101, 114, 95,
+    48, 115,
+  ]);
+  const name = makeText([105, 99, 108, 111, 117, 100]);
+  const suffix = makeText([99, 111, 109]);
   return `${local}@${name}.${suffix}`;
 }
 
