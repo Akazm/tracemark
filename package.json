@@ -1,0 +1,21 @@
+{
+  "name": "tracemark-website",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "build:debug": "tsc --noEmit && vite build --mode development",
+    "preview": "vite preview",
+    "debug": "npm run build:debug && npm run preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^8.0.10"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0",
+    "lucide": "^1.14.0"
+  }
+}

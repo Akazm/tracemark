@@ -1,0 +1,6 @@
+node_modules
+dist
+.vite
+.vite-temp
+assets/.DS_Store
+.DS_Store
