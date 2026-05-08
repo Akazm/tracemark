@@ -373,7 +373,6 @@ h3 {
 
 .story-visual-shell {
     display: grid;
-    height: clamp(330px, 56vh, 680px);
     justify-items: center;
     margin: 0 auto;
     min-width: 0;
@@ -444,9 +443,10 @@ h3 {
 }
 
 .action-video {
-    aspect-ratio: 506 / 1080;
+    aspect-ratio: 526 / 1080;
     background: #000000;
     border-radius: 8px;
+    display: block;
     max-height: min(72vh, 760px);
     max-width: 100%;
     object-fit: contain;
@@ -570,7 +570,7 @@ h3 {
     }
 
     .story-visual-shell {
-        height: clamp(300px, 76vw, 380px);
+        height: 480px;
         width: min(100%, 390px);
     }
 
@@ -597,6 +597,10 @@ h3 {
 
     .contact-actions {
         display: grid;
+    }
+
+    #see-it-in-action {
+        display: none;
     }
 }
 
