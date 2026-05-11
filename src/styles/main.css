@@ -350,6 +350,9 @@ h3 {
 .story-intro {
     align-self: end;
 }
+.bold {
+    font-weight: bold;
+}
 
 .story-intro p:not(.eyebrow),
 .section-header p,
