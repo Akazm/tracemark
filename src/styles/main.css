@@ -19,10 +19,7 @@
     --brand-strong: #0065a8;
     --mint: #15a777;
     --rose: #bd4865;
-    --amber: #a96518;
     --button-text: #ffffff;
-    --disabled-bg: #edf2f0;
-    --disabled-text: #687670;
     --hero-ink: #0d1c1a;
 }
 
@@ -39,10 +36,7 @@
     --brand-strong: #9bdfff;
     --mint: #58d4a2;
     --rose: #ee829b;
-    --amber: #f0b35c;
     --button-text: #061116;
-    --disabled-bg: #202c29;
-    --disabled-text: #9aaaa5;
     --hero-ink: #f3fffb;
 }
 
@@ -217,6 +211,37 @@ h1 {
     max-width: 100%;
 }
 
+.app-store-link {
+    border-radius: 8px;
+    display: inline-flex;
+    transition: transform 160ms ease;
+}
+
+.app-store-link:hover {
+    transform: translateY(-1px);
+}
+
+.app-store-link:active {
+    transform: translateY(0);
+}
+
+.app-store-badge {
+    height: clamp(44px, 7vw, 54px);
+    width: auto;
+}
+
+.app-store-badge-dark {
+    display: none;
+}
+
+:root[data-theme="dark"] .app-store-badge-light {
+    display: none;
+}
+
+:root[data-theme="dark"] .app-store-badge-dark {
+    display: block;
+}
+
 .button {
     align-items: center;
     border: 1px solid transparent;
@@ -257,34 +282,6 @@ h1 {
     background: var(--surface);
     border-color: var(--line);
     color: var(--text);
-}
-
-.button-store {
-    background: var(--text);
-    color: var(--bg);
-}
-
-.is-disabled {
-    background: var(--disabled-bg);
-    border-color: var(--line);
-    color: var(--disabled-text);
-    cursor: not-allowed;
-    transform: none;
-}
-
-.is-disabled:hover {
-    transform: none;
-}
-
-.button-status {
-    background: color-mix(in srgb, var(--amber), transparent 84%);
-    border-radius: 999px;
-    color: var(--amber);
-    flex: 0 0 auto;
-    font-size: 0.72rem;
-    font-weight: 820;
-    padding: 0.2rem 0.48rem;
-    white-space: nowrap;
 }
 
 .eyebrow {

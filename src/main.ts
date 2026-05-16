@@ -179,14 +179,39 @@ function getRequiredElement<T extends HTMLElement>(selector: string): T | null {
   return document.querySelector<T>(selector);
 }
 
+function setupSectionEntrances() {
+  document
+    .querySelectorAll<HTMLElement>("main > section:not([data-hero])")
+    .forEach((section, index) => {
+      gsap.fromTo(
+        section,
+        {
+          autoAlpha: 0,
+          y: -56,
+        },
+        {
+          autoAlpha: 1,
+          duration: 0.7,
+          ease: "power2.out",
+          scrollTrigger: {
+            id: `landing-section-entrance-${index + 1}`,
+            trigger: section,
+            start: "top 84%",
+            toggleActions: "play none none reverse",
+          },
+          y: 0,
+        },
+      );
+    });
+}
+
 function setupLandingScroll(previews: readonly OnboardingPreview[]) {
   const hero = getRequiredElement<HTMLElement>("[data-hero]");
   const heroContent = getRequiredElement<HTMLElement>("[data-hero-content]");
   const story = getRequiredElement<HTMLElement>("[data-scroll-story]");
-  const storyVisual = getRequiredElement<HTMLElement>("[data-story-visual]");
   const preview = previews[0];
 
-  if (!hero || !heroContent || !story || !storyVisual || !preview) {
+  if (!hero || !heroContent || !story || !preview) {
     return;
   }
 
@@ -252,25 +277,6 @@ function setupLandingScroll(previews: readonly OnboardingPreview[]) {
   const media = gsap.matchMedia();
 
   media.add("(min-width: 721px)", () => {
-    gsap.fromTo(
-      storyVisual,
-      {
-        autoAlpha: 0,
-        xPercent: 22,
-      },
-      {
-        autoAlpha: 1,
-        ease: "none",
-        scrollTrigger: {
-          id: "landing-story-visual",
-          trigger: story,
-          start: "top 86%",
-          toggleActions: "play none none reverse",
-        },
-        xPercent: 0,
-      },
-    );
-
     const trigger = ScrollTrigger.create({
       end: "bottom 22%",
       id: "landing-story-autoplay",
@@ -312,6 +318,7 @@ function boot() {
   setupContactButtons();
   setupRoundtripVideo();
   const previews = setupOnboardingPreviews();
+  setupSectionEntrances();
   setupLandingScroll(previews);
 }
 
